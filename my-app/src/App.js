@@ -43,8 +43,9 @@ function App() {
       <button type="submit">Submit</button>
     </div>
   </div> */}
-      <MyCondition/>
-      <Myquery/>
+  
+      <MyCondition />
+      {/* <Myquery/> */}
       <Maphtml/>
       <header className="App-header">
       

@@ -10,10 +10,10 @@ function Myquery() {
 
   return (
     <div>
-      <input type="text" name="condition_1" value={inputValues.condition_1} onChange={handleInputChange} />
-      <input type="text" name="condition_2" value={inputValues.condition_2} onChange={handleInputChange} />
-      <input type="text" name="condition_3" value={inputValues.condition_3} onChange={handleInputChange} />
-      <input type="text" name="condition_3" value={inputValues.condition_4} onChange={handleInputChange} />
+      <input type="text" name="condition_1" placeholder="ваши условия" value={inputValues.condition_1} onChange={handleInputChange} />
+      <input type="text" name="condition_2" placeholder="ваши условия" value={inputValues.condition_2} onChange={handleInputChange} />
+      <input type="text" name="condition_3" placeholder="ваши условия" alue={inputValues.condition_3} onChange={handleInputChange} />
+      <input type="text" name="condition_3" placeholder="ваши условия" value={inputValues.condition_4} onChange={handleInputChange} />
 
       <button onClick={() => {
         fetch('/query', {

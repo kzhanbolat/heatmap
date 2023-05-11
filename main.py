@@ -115,12 +115,15 @@ def root(sql_req: sql_req):
     # value = dict[category] 
     conn = psycopg2.connect(host = 'localhost', database = 'fastapi', user ='postgres', password = 'zhylekeev7', cursor_factory= RealDictCursor)
     cur = conn.cursor()
+    city = (sql_req.city).lower()
+    category = sql_req.category.lower()
+    subcategory = sql_req.subcategory.lower()
     query = f"""select longitude, latitude, 1 value, LEFT(name, 30) name from gis_sme_objects where 1=1 
-        and lower(city_name) like '%{sql_req.city}%' 
+        and lower(city_name) like '%{city}%' 
         and longitude is  not null 
         and longitude !='None' 
-        and lower(category) like '%{sql_req.category}%'  
-        and lower(subcategory) like '%{sql_req.subcategory}%'  
+        and lower(category) like '%{category}%'  
+        and lower(subcategory) like '%{subcategory}%'  
          limit 100"""
     print(query)
     cur.execute(query)
