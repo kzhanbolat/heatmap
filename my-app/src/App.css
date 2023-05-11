@@ -11,10 +11,37 @@ body {
   font-size: x-large;
   margin-bottom: 30px;
   margin-top: 30px;
+  display: flex;
+  justify-content: center;
+
+  /* width: 80%;. */
   /* background-color: #f1f1f1; */
 }
-input, button, select {
+input, button, select, datalist, a {
   font-size: x-large;
+  border-radius: 10px;
+  margin-right: 20px;
 
+}
+
+button {
+  background-color: rgb(154, 154, 218);
+  text-align: center;
+  cursor: pointer;
+
+}
+button:hover {
+  background-color: orange;
+}
+button:active {
+  background-color: blueviolet;
+  transform: translateY(4px);
+}
+
+a:hover {
+  width: 10%;
+  background-color: orange;
+  text-align: center;
+  cursor: pointer;
 }
 

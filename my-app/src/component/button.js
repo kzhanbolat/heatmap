@@ -2,8 +2,15 @@ import React, { useState } from 'react';
 import { cities, categories } from './data.js';
 import {  subcategories } from './subcategories';
 
-function MyCondition() {
-  
+function MyCondition(props) {
+    const [newData, setNewData] = useState(null);
+
+    const handleNewData = () => {
+        // generate new data here
+        props.onData(newData);
+    }
+
+
   const [inputValues, setInputValues] = useState({ city: '', category: '', sub_category: '', name: '', condition_1: '', condition_2: '', condition_3: '' });
 
   const handleInputChange = (event) => {
@@ -22,6 +29,7 @@ function MyCondition() {
   }
 
   return (
+    <div>
     <div className = "select">
         {/* <input type="text" name="name" placeholder="название" value={inputValues.name.toLowerCase()} onChange={handleInputChange} /> */}
         <select name="city" value={inputValues.city} onChange={handleInputChange}>
@@ -87,10 +95,16 @@ function MyCondition() {
       }
       
       
-      }>Сгенерировать Карту</button><br/>
-      <br/>
-      <a href = "voronoi_generated.html" download > Загрузить карту</a>
+      } >Сгенерировать Карту</button><br/>
+      <button onClick={handleNewData}>Generate Data</button>
+     
     </div>
+    <div className='select'>
+    <a  href = "voronoi_generated.html" download > Загрузить карту</a>
+    </div>
+    
+    </div>
+    
   );
 }
 

@@ -3,6 +3,7 @@ import './App.css';
 import Maphtml from './component/maphtml'
 import MyCondition from './component/button'
 import Myquery from './component/button_2'
+import { useState } from 'react';
 
 
 
@@ -14,6 +15,11 @@ import Myquery from './component/button_2'
 
 
 function App() {
+  const [data, setData] = useState(null);
+
+  const handleData = (newData) => {
+    setData(newData);
+  }
   return (
     <div className="App">
   {/* <div>
@@ -44,9 +50,9 @@ function App() {
     </div>
   </div> */}
   
-      <MyCondition />
+      <MyCondition onData={handleData}/>
       {/* <Myquery/> */}
-      <Maphtml/>
+      <Maphtml data={data}/>
       <header className="App-header">
       
 	    

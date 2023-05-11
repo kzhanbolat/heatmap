@@ -103,7 +103,7 @@ def read_html():
 
 @app.post("/city")
 def root(sql_req: sql_req):
-    # value = dict[category] 
+    
     conn = psycopg2.connect(host = 'localhost', database = 'fastapi', user ='postgres', password = 'zhylekeev7', cursor_factory= RealDictCursor)
     cur = conn.cursor()
     city = (sql_req.city).lower()
@@ -142,8 +142,7 @@ def root(sql_req: sql_req):
 
 @app.post("/query/")
 def root(sql_query: sql_query):
-    # value = dict[category] 
-    # print(sql_query.query)
+   
     conn = psycopg2.connect(host = 'localhost', database = 'fastapi', user ='postgres', password = 'zhylekeev7', cursor_factory= RealDictCursor)
     cur = conn.cursor()
     cur.execute(f"""select longitude, latitude, 1 value, LEFT(name, 30) name from gis_sme_objects where 1=1 
